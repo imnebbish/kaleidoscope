@@ -3,19 +3,11 @@ import random
 import time
 
 def main(stdscr):
-    curses.curs_set(0)
-    stdscr.nodelay(1)
-    stdscr.timeout(100)
+    curses.start_color()
+    for i in range(1, 8):
+        curses.init_pair(i, i, curses.COLOR_BLACK)
 
-    while True:
-        stdscr.clear()
-        height, width = stdscr.getmaxyx()
-        stdscr.addstr(0, 0, f"Size: {width}x{height}. Press 'q' to exit.")
-        stdscr.refresh()
-
-        key = stdscr.getch()
-        if key == ord('q'):
-            break
+    draw_kaleidoscope(stdscr)
 
 def generate_pattern(rows, cols):
     symbols = ['*', '+', '.', 'o', 'x']
