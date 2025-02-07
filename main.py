@@ -16,5 +16,10 @@ def main(stdscr):
         if key == ord('q'):
             break
 
+def generate_pattern(rows, cols):
+    pattern = [[' ' for _ in range(cols)] for _ in range(rows)]
+    pattern[rows // 2][cols // 2] = '*'
+    return pattern
+
 if __name__ == "__main__":
     curses.wrapper(main)
