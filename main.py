@@ -21,5 +21,10 @@ def generate_pattern(rows, cols):
     pattern[rows // 2][cols // 2] = '*'
     return pattern
 
+def render_pattern(stdscr, pattern):
+    for y, row in enumerate(pattern):
+        for x, char in enumerate(row):
+            stdscr.addch(y, x, char)
+
 if __name__ == "__main__":
     curses.wrapper(main)
