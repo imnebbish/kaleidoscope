@@ -19,7 +19,18 @@ def main(stdscr):
 
 def generate_pattern(rows, cols):
     symbols = ['*', '+', '.', 'o', 'x']
-    pattern = [[random.choice(symbols) for _ in range(cols)] for _ in range(rows)]
+    pattern = [[' ' for _ in range(cols)] for _ in range(rows)]
+
+    for _ in range((rows * cols) // 20):
+        y = random.randint(0, rows // 2 - 1)
+        x = random.randint(0, cols // 2 - 1)
+        symbol = random.choice(symbols)
+
+        pattern[y][x] = symbol
+        pattern[y][cols - x - 1] = symbol
+        pattern[rows - y - 1][x] = symbol
+        pattern[rows - y - 1][cols - x - 1] = symbol
+
     return pattern
 
 def render_pattern(stdscr, pattern):
