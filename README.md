@@ -1,5 +1,5 @@
 # Kaleidoscope
-![image](image.png)
+![image](example.gif)
 
 ## Clone Repo
 ```
