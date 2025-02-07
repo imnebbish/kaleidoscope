@@ -1,4 +1,5 @@
 import curses
+import random
 import time
 
 def main(stdscr):
@@ -17,8 +18,8 @@ def main(stdscr):
             break
 
 def generate_pattern(rows, cols):
-    pattern = [[' ' for _ in range(cols)] for _ in range(rows)]
-    pattern[rows // 2][cols // 2] = '*'
+    symbols = ['*', '+', '.', 'o', 'x']
+    pattern = [[random.choice(symbols) for _ in range(cols)] for _ in range(rows)]
     return pattern
 
 def render_pattern(stdscr, pattern):
