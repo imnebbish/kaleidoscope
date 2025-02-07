@@ -8,7 +8,8 @@ def main(stdscr):
 
     while True:
         stdscr.clear()
-        stdscr.addstr(0, 0, "Press 'q' to exit.")
+        height, width = stdscr.getmaxyx()
+        stdscr.addstr(0, 0, f"Size: {width}x{height}. Press 'q' to exit.")
         stdscr.refresh()
 
         key = stdscr.getch()
